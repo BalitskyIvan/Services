@@ -15,4 +15,4 @@ openssl req -newkey rsa:4096 \
             -subj "/C=RU/ST=TATARSTAN/L=Kazan/O=School21/OU=University/CN=localhost"
 
 #start nginx
-nginx -g 'daemon off;'
+nginx -g 'pid /tmp/nginx.pid; daemon off;'
