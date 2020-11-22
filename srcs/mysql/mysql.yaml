@@ -1,34 +1,56 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: phpmyadmin-svc
+  name: mysql-svc
 spec:
   selector:
-    app: phpmyadmin
-  type: LoadBalancer
+    app: mysql
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3306
+      targetPort: 3306
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-claim
+spec:
+  storageClassName: mysql-volume
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin-deployment
+  name: mysql-deployment
   labels:
-    app: phpmyadmin
+    app: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: phpmyadmin
+      app: mysql
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: phpmyadmin
+        app: mysql
     spec:
+      volumes:
+      - name: mysql-volume
+        persistentVolumeClaim:
+          claimName: mysql-claim
       containers:
-      - name: phpmyadmin
-        image: phpmyadmin_image
+      - name: mysql
+        image: mysql_image
         imagePullPolicy: Never
         ports:
-        - containerPort: 5050
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-volume
+          mountPath: /var/lib/
