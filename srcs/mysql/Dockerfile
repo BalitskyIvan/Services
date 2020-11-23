@@ -18,11 +18,14 @@ RUN apk add mariadb
 RUN apk add mariadb-client
 RUN apk add openrc
 RUN apk add bash
+RUN mkdir -p /etc/lmallado
+RUN apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 
 COPY ./srcs/my.cnf /etc/mysql/
 COPY ./srcs/my.cnf /etc/
 COPY ./srcs/mariadb-server.cnf /etc/my.cnf.d
-
+COPY ./srcs/wordpress.sql /etc/lmallado/wordpress.sql
+COPY ./srcs/db_create.sql /etc/lmallado/db_create.sql
 COPY ./srcs/start.sh /start.sh
 
 VOLUME ["/sys/fs/cgroup"]

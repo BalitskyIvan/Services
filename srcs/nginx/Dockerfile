@@ -18,6 +18,7 @@ RUN apk add bash openssh-server supervisor
 RUN apk add nginx openssl
 RUN mkdir -p /run/nginx /var/run/sshd /var/log/supervisor
 RUN rm -rf /etc/nginx/conf.d/default.conf
+RUN apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 
 #COPY ./srcs/default.conf /etc/nginx/conf.d/default.conf
 COPY ./srcs/supervisord.conf /etc/supervisor/conf.d/supervisord.conf

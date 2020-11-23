@@ -22,6 +22,7 @@ RUN apk add lighttpd php7-common php7-iconv php7-json php7-gd php7-curl php7-xml
 RUN apk add mariadb
 RUN apk add mariadb-client
 RUN apk add nginx supervisor mysql mysql-client php-mysqli php7-mbstring php7-mysqli php7-phar php7-session
+RUN apk add telegraf --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
 
 RUN rm -rf /etc/nginx/conf.d/default.conf
 
