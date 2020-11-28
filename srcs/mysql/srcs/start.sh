@@ -1,24 +1,37 @@
+#----------------------------------------------
+#start openrc
+#----------------------------------------------
+
 openrc default
+
+#----------------------------------------------
+#start mariadb daemon
+#----------------------------------------------
 
 /etc/init.d/mariadb setup
 rc-service mariadb start
 
+#----------------------------------------------
+#create db and user
+#----------------------------------------------
+
 echo "create database wordpress;" | mysql
-echo "grant all on *.* to admin@'%' identified by 'admin' with grant option; flush privileges;" | mysql
+echo "grant all on *.* to admin@'%' identified by 'admin' with grant option; update mysql.user set plugin='mysql_native_password' where user='admin'; flush privileges;" | mysql
 
-# #db creating
-# echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password
-
-# #root to lochalhost
-# echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password
-
-# #turn off password
-# echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password
-
-# #add changes
-# echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+#----------------------------------------------
+#export bd
+#----------------------------------------------
 
 mysql wordpress < /etc/lmallado/wordpress.sql
 
+#----------------------------------------------
+#stop mariadb daemon
+#----------------------------------------------
+
 rc-service mariadb stop
-/usr/bin/mysqld_safe --datadir='/var/lib/mysql'
+
+#----------------------------------------------
+#start supervisor
+#----------------------------------------------
+
+/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf

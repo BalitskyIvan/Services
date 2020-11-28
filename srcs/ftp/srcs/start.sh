@@ -1,8 +1,13 @@
+#----------------------------------------------
+#create user
+#----------------------------------------------
 
-#create main di
-#-----------------------
+echo root:root | chpasswd
+
+#----------------------------------------------
 #create ssl certificate with 4096 bits
-#-----------------------
+#----------------------------------------------
+
 openssl req -newkey rsa:4096 \
             -x509 \
             -sha256 \
@@ -12,6 +17,8 @@ openssl req -newkey rsa:4096 \
             -keyout /etc/lmallado/localhost.key \
             -subj "/C=RU/ST=TATARSTAN/L=Kazan/O=School21/OU=University/CN=localhost"
 
-#start nginx
+#----------------------------------------------
+#start supervisor
+#----------------------------------------------
 
-vsftpd /etc/lmallado/vsftpd.conf
+/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf

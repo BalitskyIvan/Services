@@ -1,7 +1,19 @@
+minikube stop
+minikube delete
+minikube start --vm-driver=virtualbox
+
+minikube addons enable metallb
+
+kubectl apply -f srcs/config.yaml
+kubectl apply -f ./srcs/mysql/pv_config.yaml
+kubectl apply -f ./srcs/influxdb/pv_config.yaml
+
+minikube status
+sleep 5
 clear
+
 eval $(minikube docker-env)
-#sudo chmod 666 /home/lmallado/.minikube/certs/ca.pem
-#minikube status
+
 docker image rm nginx_image
 
 docker build -t nginx_image ./srcs/nginx
@@ -24,11 +36,18 @@ docker build -t ftp_image ./srcs/ftp
 kubectl delete deploy ftp-deployment
 kubectl apply -f ./srcs/ftp/ftp.yaml
 
-docker build -t influx_image ./srcs/influxDB
+docker build -t influx_image ./srcs/influxdb
 kubectl delete deploy influx-deployment
-kubectl apply -f ./srcs/influxDB/influx.yaml
+kubectl apply -f ./srcs/influxdb/influx.yaml
 
-sleep 7
+docker build -t grafana_image ./srcs/grafana
+kubectl delete deploy grafana-deployment
+kubectl apply -f ./srcs/grafana/grafana.yaml
+
 kubectl get deploy
 
-say ALLLL IS DONE BLYAT ZAYDI SUDA BISTRO
+minikube dashboard &
+
+sleep 10
+
+say ALL IS DONE  ALL IS DONE  ALL IS DONE  ALL IS DONE

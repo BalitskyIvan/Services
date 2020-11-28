@@ -1,5 +1,0 @@
-CREATE USER 'root'@'%';
-CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
-CREATE DATABASE wordpress;
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
-FLUSH PRIVILEGES;

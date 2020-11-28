@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: influx
+spec:
+  selector:
+    app: influx
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8086
+      targetPort: 8086
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influx-claim
+spec:
+  storageClassName: influx-volume
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influx-deployment
+  labels:
+    app: influx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influx
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: influx
+    spec:
+      volumes:
+      - name: influx-volume
+        persistentVolumeClaim:
+          claimName: influx-claim
+      containers:
+      - name: influx
+        image: influx_image
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8086
+        volumeMounts:
+        - name: influx-volume
+          mountPath: /var/lib/

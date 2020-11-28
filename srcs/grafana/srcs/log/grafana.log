@@ -1,0 +1,37 @@
+t=2020-11-28T13:47:14+0000 lvl=info msg="Starting Grafana" logger=server version=7.3.3 commit=2489dc4d3a branch=HEAD compiled=2020-11-17T12:18:22+0000
+t=2020-11-28T13:47:14+0000 lvl=info msg="Config loaded from" logger=settings file=/grafana/conf/defaults.ini
+t=2020-11-28T13:47:14+0000 lvl=info msg="Path Home" logger=settings path=/grafana
+t=2020-11-28T13:47:14+0000 lvl=info msg="Path Data" logger=settings path=/grafana/data
+t=2020-11-28T13:47:14+0000 lvl=info msg="Path Logs" logger=settings path=/grafana/data/log
+t=2020-11-28T13:47:14+0000 lvl=info msg="Path Plugins" logger=settings path=/grafana/data/plugins
+t=2020-11-28T13:47:14+0000 lvl=info msg="Path Provisioning" logger=settings path=/grafana/conf/provisioning
+t=2020-11-28T13:47:14+0000 lvl=info msg="App mode production" logger=settings
+t=2020-11-28T13:47:14+0000 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2020-11-28T13:47:14+0000 lvl=warn msg="SQLite database file has broader permissions than it should" logger=sqlstore path=/grafana/data/grafana.db mode=-rw-rw-r-- expected=-rw-r-----
+t=2020-11-28T13:47:14+0000 lvl=info msg="Starting DB migrations" logger=migrator
+t=2020-11-28T13:47:14+0000 lvl=info msg="Starting plugin search" logger=plugins
+t=2020-11-28T13:47:14+0000 lvl=info msg="Registering plugin" logger=plugins id=input
+t=2020-11-28T13:47:14+0000 lvl=info msg="External plugins directory created" logger=plugins directory=/grafana/data/plugins
+t=2020-11-28T13:47:14+0000 lvl=info msg="HTTP Server Listen" logger=http.server address=[::]:3000 protocol=http subUrl= socket=
+t=2020-11-28T13:47:19+0000 lvl=eror msg="Failed to look up user based on cookie" logger=context error="user token not found"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=1 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=eror msg="Failed to look up user based on cookie" logger=context error="user token not found"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=1 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/annotations status=401 remote_addr=172.17.0.1 time_ms=1 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=eror msg="Failed to look up user based on cookie" logger=context error="user token not found"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=6 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/login/ping status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/aY0OvO0Gz/minikube status=302 remote_addr=172.17.0.1 time_ms=0 size=29 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/aY0OvO0Gz/minikube status=302 remote_addr=172.17.0.1 time_ms=0 size=29 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/aY0OvO0Gz/minikube status=302 remote_addr=172.17.0.1 time_ms=0 size=29 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/datasources/proxy/1/query status=401 remote_addr=172.17.0.1 time_ms=0 size=26 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/aY0OvO0Gz/minikube status=302 remote_addr=172.17.0.1 time_ms=0 size=29 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:19+0000 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/d/aY0OvO0Gz/minikube status=302 remote_addr=172.17.0.1 time_ms=0 size=29 referer="http://192.168.99.100:3000/d/aY0OvO0Gz/minikube?orgId=1&refresh=5s"
+t=2020-11-28T13:47:28+0000 lvl=info msg="Successful Login" logger=http.server User=admin@localhost
