@@ -50,4 +50,6 @@ minikube dashboard &
 
 sleep 10
 
+kubectl get services
+
 say ALL IS DONE  ALL IS DONE  ALL IS DONE  ALL IS DONE

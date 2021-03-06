@@ -25,7 +25,6 @@ COPY ./srcs/vsftpd.conf /etc/lmallado/vsftpd.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
 RUN chmod 777 /start.sh
-# RUN echo root:root | chpasswd
 
 EXPOSE 21
 
